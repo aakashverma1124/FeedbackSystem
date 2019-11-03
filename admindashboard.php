@@ -306,6 +306,36 @@
       e.preventDefault();
     }
 
+    function onAddCampusService(){
+      var form = document.getElementById("add_campus_service_form");
+      let jsonObject = {};
+      for(let field of form.elements) {
+        if (field.name) {
+            jsonObject[field.name] = field.value;
+        }
+      }
+      console.log(JSON.stringify(jsonObject));   
+
+       $.ajax({
+       type: "POST",
+       url: './add_campus_service.php',
+       data:{action : JSON.stringify(jsonObject)},
+       success:function(html) {
+         res = html;
+         //alert(res);
+         document.getElementById("campus-service-toggle").click();
+       },
+       error: function (textStatus, errorThrown) {
+            alert("Error Occured!");
+        }
+      }); 
+      document.add_campus_service_form.reset();
+    }
+
+    function responseFormSubmit(e){
+      e.preventDefault();
+    }
+
 </script>
 
 
