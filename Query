@@ -1,4 +1,0 @@
-SELECT name, admission_number, branch, responses as comments
-from comment_response_table c
-NATURAL join student_table s
-where c.service_id = 201901
