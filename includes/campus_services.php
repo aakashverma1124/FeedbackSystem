@@ -55,6 +55,12 @@
                         <label for="oldPassword"><b>Service Name</b></label>
                         <input class="form-control" type="text" placeholder="Service Name" name="add_campus_service" required>
                       </div>
+                      <div class="form-group">
+                        <label for="uploadServicePhoto">Select Resume:</label>
+                        <div class="photo-field-value">
+                          <input type="file" class="form-control" id="uploadedServicePhoto" name="uploadedServicePhoto">
+                        </div>
+                      </div>
                       <button class="button-field btn btn-danger" data-dismiss="modal" type="submit" onclick="onAddCampusService();">Add Service</button></br></br>
                     </div>
 

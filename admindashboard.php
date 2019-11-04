@@ -30,8 +30,6 @@
 
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-   <!-- stats -->
-   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
@@ -161,7 +159,7 @@
 
    <footer style="background: #A51C30;">
      <div class="footer-copyright text-center py-3">© 2019 Copyright -
-       <a style="color:white" href="https://abes.ac.in">ABES Engineering College</a></br>
+       <a style="color: white;" href="https://abes.ac.in">ABES Engineering College</a></br>
        Developed by<a style="color:white" href="http://innoskrit.in"> Innoskrit</a>
      </div>
    </footer>
@@ -169,7 +167,8 @@
 </body>
 </html>
 <script type="text/javascript">
-   document.getElementById("showStats").style.display = "none";
+   // document.getElementById("showStats").style.display = "none";
+   $("#showStats").hide();   
    $("#dyanamicContent").show();   
 </script>
 
@@ -292,7 +291,7 @@
        data:{action : JSON.stringify(jsonObject)},
        success:function(html) {
          res = html;
-         //alert(res);
+         alert(res);
         document.getElementById("hostel-service-toggle").click();
        },
        error: function (textStatus, errorThrown) {
@@ -336,10 +335,44 @@
       e.preventDefault();
     }
 
+
+
+
+    function onAddQuestionButtonClicked(ServiceId) {
+      alert(ServiceId)
+      var form = document.getElementById("add_new_questions_form");
+      let jsonObject = {};
+      for(let field of form.elements) {
+        if (field.name) {
+            jsonObject[field.name] = field.value;
+        }
+      }
+      console.log(JSON.stringify(jsonObject));   
+      jsonObject['ServiceId'] = ServiceId;
+       $.ajax({
+       type: "POST",
+       url: './add_question.php',
+       data:{action : JSON.stringify(jsonObject)},
+       success:function(html) {
+         res = html;
+         alert(res);
+         //document.getElementById("campus-service-toggle").click();
+       },
+       error: function (textStatus, errorThrown) {
+            alert("Error Occured!");
+        }
+      }); 
+      document.add_new_questions_form.reset();
+    }
+
+    function responseFormSubmit(e){
+      e.preventDefault();
+    }
+
 </script>
 
 
-<script>
+<!-- <script>
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -354,4 +387,4 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
-</script>
+</script> -->

@@ -56,8 +56,12 @@
                         <label for="oldPassword"><b>Service Name</b></label>
                         <input class="form-control" type="text" placeholder="Service Name" name="add_hostel_service" required>
                       </div>
-                      
-                      
+                      <div class="form-group">
+                        <label for="uploadServicePhoto">Add Photo:</label>
+                        <div class="photo-field-value">
+                          <input type="file" class="form-control" id="uploadedServicePhoto" name="uploadedServicePhoto">
+                        </div>
+                      </div>
                       <button class="button-field btn btn-danger" data-dismiss="modal" type="submit" onclick="onAddHostelService();">Add Service</button></br></br>
 
                     </div>

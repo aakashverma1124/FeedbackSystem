@@ -7,6 +7,12 @@
     <a style="color:brown;float:right;margin-bottom:2%;" href="./admindashboard.php">Back to Home</a>
   </div>
   </div>
+  <div class="row">
+    <div class="col-md-8">
+      <input type="submit" data-toggle="modal" data-target="#add_questions" name="add_questions" class="btn btn-danger add_questions" value="Add Question">
+    </div>
+  </div>
+  <br>
 </div>
 
 <div id="accordion">
@@ -131,3 +137,29 @@
     </div>
   </div>
 </div>
+
+
+  <div class="modal" id="add_questions">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title">Add a questions!</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+            <form id="add_new_questions_form" name="add_new_questions_form" action="add_question.php" method="post">
+              <div class="container">
+                <br>
+                <div class="form-group">
+                  
+                  <label for="new_question"><b>Question</b></label>
+                  <textarea class="new-question-value form-control" placeholder="Enter a new question!" name="new_question" required></textarea>
+                </div>
+                
+                <button class="button-field btn btn-danger" data-dismiss="modal" type="button" onclick="onAddQuestionButtonClicked(<?php echo $_POST["ServiceId"] ?>);" >Add</button></br></br>
+
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
