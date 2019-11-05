@@ -48,7 +48,7 @@
                   <h4 class="modal-title">Add Campus Service</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                  <form id="add_campus_service_form" name="add_campus_service_form" action="add_campus_service.php" method="post">
+                  <form id="add_campus_service_form" name="add_campus_service_form" method="post" enctype="multipart/form-data">
 
                     <div class="container">
                       <div class="form-group">
@@ -56,12 +56,12 @@
                         <input class="form-control" type="text" placeholder="Service Name" name="add_campus_service" required>
                       </div>
                       <div class="form-group">
-                        <label for="uploadServicePhoto">Select Resume:</label>
+                        <label for="uploadServicePhoto">Select Photo:</label>
                         <div class="photo-field-value">
                           <input type="file" class="form-control" id="uploadedServicePhoto" name="uploadedServicePhoto">
                         </div>
                       </div>
-                      <button class="button-field btn btn-danger" data-dismiss="modal" type="submit" onclick="onAddCampusService();">Add Service</button></br></br>
+                      <button class="button-field btn btn-danger" type="submit">Add Service</button></br></br>
                     </div>
 
                   </form>

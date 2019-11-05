@@ -50,21 +50,22 @@
                   <h4 class="modal-title">Add Hostel Service</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                  <form id="add_hostel_service_form" name="add_hostel_service_form" action="add_hostel_service.php" method="post">
+                  <form id="add_hostel_service_form" name="add_hostel_service_form" method="post" enctype="multipart/form-data" onsubmit="onAddHostelService(event, this)">
+
                     <div class="container">
                       <div class="form-group">
                         <label for="oldPassword"><b>Service Name</b></label>
                         <input class="form-control" type="text" placeholder="Service Name" name="add_hostel_service" required>
                       </div>
                       <div class="form-group">
-                        <label for="uploadServicePhoto">Add Photo:</label>
+                        <label for="uploadServicePhoto">Select Photo:</label>
                         <div class="photo-field-value">
                           <input type="file" class="form-control" id="uploadedServicePhoto" name="uploadedServicePhoto">
                         </div>
                       </div>
-                      <button class="button-field btn btn-danger" data-dismiss="modal" type="submit" onclick="onAddHostelService();">Add Service</button></br></br>
-
+                      <button class="button-field btn btn-danger" type="submit">Add Service</button></br></br>
                     </div>
+
                   </form>
               </div>
             </div>

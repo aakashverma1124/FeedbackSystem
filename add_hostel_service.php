@@ -1,21 +1,18 @@
 <?php
 	include_once('./includes/class.upload.php');
-
 	include_once('./includes/connection.php');
-	$values = (array)json_decode($_POST['action']);
+	// $values = (array)json_decode($_POST['action']);
 	
-	$stmt = $conn->prepare("INSERT INTO services (`service_name`, `type`) VALUES(?,?)");
-	$status = $stmt->execute([$values['add_hostel_service'], 'hostel']); 
-	echo $values['uploadedServicePhoto'];
+	$handle = new upload($_FILES['uploadedServicePhoto']);
 
-	$handle = new upload($values['uploadedServicePhoto']);
-	// echo $handle;
-	// session_start();
-	// $admission_number = $_SESSION['admission_number'];
+	$stmt = $conn->prepare("INSERT INTO services (`service_name`, `type`) VALUES(?,?)");
+	$status = $stmt->execute([$_POST['add_hostel_service'], 'campus']); 
+
+
 	$message = '';
 
 	if ($handle->uploaded) {
-	  $handle->file_new_name_body   = 'addedphoto';
+	  $handle->file_new_name_body   = ''.$_POST['add_hostel_service'].'';
 	  $handle->image_resize         = true;
 	  $handle->image_x              = 400;
 	  $handle->image_y              = 400;
@@ -43,10 +40,10 @@
 
 	echo $message;
 
+	if($status){
+		echo "Campus Service Added";
+	}else{
+		echo "Error Occured";
+	}
 
-
-	
-
-	
-	
 ?>

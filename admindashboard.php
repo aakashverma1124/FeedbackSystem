@@ -168,6 +168,7 @@
 </html>
 <script type="text/javascript">
    // document.getElementById("showStats").style.display = "none";
+   
    $("#showStats").hide();   
    $("#dyanamicContent").show();   
 </script>
@@ -272,64 +273,66 @@
     }
 
     
+    $(document).ready(()=>{
+      // alert("hi")
+
+      // campus picture using ajax
+      $("#add_campus_service_form").submit(function(e) {
+          
+          e.preventDefault();    
+          var formData = new FormData(this);
+
+          $.ajax({
+              url: './add_campus_service.php',
+              type: 'POST',
+              data: formData,
+              success: function (data) {
+                  alert(data);
+                  $('.close').click();
+                  document.getElementById("campus-service-toggle").click();
+              },
+              cache: false,
+              contentType: false,
+              processData: false
+          });
+      });
+
+
+      
 
 
 
-    function onAddHostelService(){
-      var form = document.getElementById("add_hostel_service_form");
-      let jsonObject = {};
-      for(let field of form.elements) {
-        if (field.name) {
-            jsonObject[field.name] = field.value;
-        }
-      }
-      console.log(JSON.stringify(jsonObject));   
+    })
 
-       $.ajax({
-       type: "POST",
-       url: './add_hostel_service.php',
-       data:{action : JSON.stringify(jsonObject)},
-       success:function(html) {
-         res = html;
-         alert(res);
-        document.getElementById("hostel-service-toggle").click();
-       },
-       error: function (textStatus, errorThrown) {
-            alert("Error Occured!");
-        }
-      }); 
-      document.add_hostel_service_form.reset();
+
+
+    function onAddHostelService(e, form){
+      
+      
+          e.preventDefault();    
+          var formData = new FormData(form);
+          alert("hi")
+          $.ajax({
+              url: './add_hostel_service.php',
+              type: 'POST',
+              data: formData,
+              success: function (data) {
+                  alert(data);
+                  $('.close').click();
+                  document.getElementById("campus-service-toggle").click();
+              },
+              cache: false,
+              contentType: false,
+              processData: false
+          });
 
     }
     function responseFormSubmit(e){
       e.preventDefault();
     }
 
-    function onAddCampusService(){
-      var form = document.getElementById("add_campus_service_form");
-      let jsonObject = {};
-      for(let field of form.elements) {
-        if (field.name) {
-            jsonObject[field.name] = field.value;
-        }
-      }
-      console.log(JSON.stringify(jsonObject));   
 
-       $.ajax({
-       type: "POST",
-       url: './add_campus_service.php',
-       data:{action : JSON.stringify(jsonObject)},
-       success:function(html) {
-         res = html;
-         //alert(res);
-         document.getElementById("campus-service-toggle").click();
-       },
-       error: function (textStatus, errorThrown) {
-            alert("Error Occured!");
-        }
-      }); 
-      document.add_campus_service_form.reset();
-    }
+    
 
     function responseFormSubmit(e){
       e.preventDefault();
