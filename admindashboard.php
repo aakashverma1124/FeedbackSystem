@@ -35,18 +35,6 @@
 <body>
   
     <!-- ========== User Dashboard Navbar ========== -->
-   <!-- <nav style="background: #A51C30" class="navbar navbar-expand-lg navbar-light">
-     <ul>
-      <a href="https://abes.ac.in"><img style="width: 40%;" src="./assests/images/abeslogo.png"></a>
-     </ul>
-     <div class="col-md-6 col-sm-1"></div>
-     <div>
-    <button style="border-color: white;
-   color: white;" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-outline-success">Change Passoword</button>
-      <a href="./includes/logout.php"><button style="border-color: white;
-   color: white;" type="button" class="btn btn-outline-success"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</button></a></div>
-   </nav> -->
-
 
    <header style="width: 100%;">
     <div class="container-fluid">
@@ -144,11 +132,6 @@
                    </div>
                </div>      
             </div>
-
-            <!-- <div id="hostel-services" class="embed-responsive embed-responsive-1by1">
-              <iframe class="embed-responsive-item" src="./includes/hostel_services.php">
-              </iframe>
-            </div> -->
          </div>
          
 
@@ -167,7 +150,6 @@
 </body>
 </html>
 <script type="text/javascript">
-   // document.getElementById("showStats").style.display = "none";
    
    $("#showStats").hide();   
    $("#dyanamicContent").show();   
@@ -205,40 +187,6 @@
             document.getElementById("dyanamicContent").innerHTML = data;
          })         
      }
-   
-   // function reply_click(clicked_id)
-   //   {    var responseToGraph = [['Response', 'Frequency']];
-   //       $.post('includes/servicesfeedback.php', { "ServiceId" : clicked_id }, (data, status)=>{
-            
-   //          var responseRatingArray = JSON.parse(data);
-   //          console.log(responseRatingArray);
-   //          for(var i=0;i<10;i++){
-   //            responseToGraph.push([""+parseInt(i+1)+"", parseInt(responseRatingArray[i])]);   
-   //          }
-   //          console.log(responseToGraph) ;
-   //          google.charts.load('current', {'packages':['corechart']});
-   //          google.charts.setOnLoadCallback(drawChart);
-   //          $("#showStats").show();
-            
-   //          document.getElementById("dyanamicContent").style.display = "none";
-
-
-            
-   //          function drawChart() {
-   //            var data = google.visualization.arrayToDataTable(
-   //            responseToGraph
-   //          );
-
-              
-   //            var options = {'title':'Service Details', 'width':400, 'height':400,sliceVisibilityThreshold:0 };
-
-              
-   //            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-   //            chart.draw(data, options);
-   //          }
-   //       })         
-   //   }
-
 
 
 
@@ -373,21 +321,3 @@
     }
 
 </script>
-
-
-<!-- <script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-</script> -->
