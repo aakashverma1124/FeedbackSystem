@@ -158,6 +158,35 @@ body{
     box-shadow: 0 4px 8px hsla(210,2%,84%,.2);
 }
 
+header .top {
+          float: right;
+        }
+        
+        #homestyleimg{
+        width:78%; 
+        margin-top: 1%;
+        }
+        
+        @media (min-width: 992px) and (max-width: 1199px) {
+        }
+        
+        @media (min-width: 768px) and (max-width: 991px) {
+        #homestyleimg{
+        width:70%; 
+        margin-top: 1%;
+        }
+          
+        }
+
+        @media (max-width: 767px) {
+        #homestyleimg{
+        width:40%; 
+        margin-top: 1%;
+        margin-left: 25%;
+        }
+          
+}
+
 @media only screen and (max-width:500px){
     .form-modal{
         width:100%;

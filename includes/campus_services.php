@@ -8,12 +8,12 @@
 
   foreach($campus_services as $campus_service){
       echo '
-      <div style="margin-top: 2%;margin-bottom: 2%;" class="col-md-3">
+      <div style="margin-top: 2%;margin-bottom: 2%;" class="col-6 col-sm-6 col-md-4 col-lg-2">
       
         <div id="'.$campus_service['service_id'].'" onClick="reply_click(this.id)" style="border-radius: 10%;" class="card">
-          <img src="./images/services/campus/service.jpg" alt="service" style="width:100%">
+          <img src="./images/services/campus/'.$campus_service['service_id'].'.jpg" alt="service" style="width:100%">
           <div class="container">
-            <h4 style="margin-top: 2%;font-family: serif;color: brown;text-align:center;"><b>' .$campus_service['service_name']. '</b></h4>
+            <h6 style="margin-top: 2%;font-family: serif;color: brown;text-align:center;"><b>' .$campus_service['service_name']. '</b></h6>
           </div>
         </div>
       </div>
@@ -24,12 +24,12 @@
 
       if($_SESSION["admin_loggedin"] == 1){
         echo '
-        <div style="margin-top: 2%;margin-bottom: 2%;" class="col-md-3">
+        <div style="margin-top: 2%;margin-bottom: 2%;" class="col-6 col-sm-6 col-md-4 col-lg-2">
       
         <div data-toggle="modal" data-target="#campusModal" style="border-radius: 10%;" class="card">
           <img src="./images/services/hostel/addservice.jpg" alt="service" style="width:100%">
           <div class="container">
-            <h4 style="margin-top: 2%;font-family: serif;color: brown;text-align:center;"><b>Add Service</b></h4>
+            <h6 style="margin-top: 2%;font-family: serif;color: brown;text-align:center;"><b>Add Service</b></h6>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
 ?>
 
       <!-- ========== Add Campus Service Modal ========== -->
-         <div class="modal" id="campusModal">
+          <div class="modal" id="campusModal">
             <div class="modal-dialog">
               <div class="modal-content">
 
@@ -48,7 +48,7 @@
                   <h4 class="modal-title">Add Campus Service</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                  <form id="add_campus_service_form" name="add_campus_service_form" method="post" enctype="multipart/form-data">
+                  <form id="add_campus_service_form" name="add_campus_service_form" method="post" enctype="multipart/form-data" onsubmit="onAddCampusService(event, this)">
 
                     <div class="container">
                       <div class="form-group">

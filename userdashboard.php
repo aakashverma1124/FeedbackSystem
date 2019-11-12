@@ -40,7 +40,7 @@
     <div class="container-fluid">
           <div class="row">
             <div class="col-md-2">
-                  <img style="width: 80%;" src="https://admission.abes.ac.in/assets/images/abeslogo.png" id="homestyleimg" alt="ABESEC">
+                  <img src="https://admission.abes.ac.in/assets/images/abeslogo.png" id="homestyleimg" alt="ABESEC">
             </div>
             <div class="col-md-10" style="background-color: #A51C30;">
               <div style="margin-top: 1.5%;float: right;">

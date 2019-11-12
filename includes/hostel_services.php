@@ -5,16 +5,16 @@
 
  include_once("./../includes/connection.php");
   $stmt = $conn->query("SELECT * FROM services where type='hostel'");
-  $campus_services = $stmt->fetchAll();
+  $hostel_services = $stmt->fetchAll();
 
-  foreach($campus_services as $campus_service){
+  foreach($hostel_services as $hostel_service){
       echo '
-      <div style="margin-top: 2%;margin-bottom: 2%;" class="col-md-3">
+      <div style="margin-top: 2%;margin-bottom: 2%;" class="col-6 col-sm-6 col-md-4 col-lg-2">
       
-        <div id="'.$campus_service['service_id'].'" onClick="reply_click(this.id)" style="border-radius: 10%;" class="card">
-          <img src="./images/services/campus/service.jpg" alt="service" style="width:100%">
+        <div id="'.$hostel_service['service_id'].'" onClick="reply_click(this.id)" style="border-radius: 10%;" class="card">
+          <img src="./images/services/hostel/'.$hostel_service['service_id'].'.jpg" alt="service" style="width:100%">
           <div class="container">
-            <h4 style="margin-top: 2%;font-family: serif;color: brown;text-align:center;"><b>' .$campus_service['service_name']. '</b></h4>
+            <h6 style="margin-top: 2%;font-family: serif;color: brown;text-align:center;"><b>' .$hostel_service['service_name']. '</b></h6>
           </div>
         </div>
       </div>
@@ -26,12 +26,12 @@
     $emails = $stmt2->fetchAll();
       if($_SESSION["admin_loggedin"] == 1){
         echo '
-        <div style="margin-top: 2%;margin-bottom: 2%;" class="col-md-3">
+        <div style="margin-top: 2%;margin-bottom: 2%;" class="col-6 col-sm-6 col-md-4 col-lg-2">
       
         <div data-toggle="modal" data-target="#hostelModal" style="border-radius: 10%;" class="card">
           <img src="./images/services/hostel/addservice.jpg" alt="service" style="width:100%">
           <div class="container">
-            <h4 style="margin-top: 2%;font-family: serif;color: brown;text-align:center;"><b>Add Service</b></h4>
+            <h6 style="margin-top: 2%;font-family: serif;color: brown;text-align:center;"><b>Add Service</b></h6>
           </div>
         </div>
       </div>

@@ -9,13 +9,23 @@
 	$status = $stmt->execute([$_POST['add_campus_service'], 'campus']); 
 
 
+	$stmt2 = $conn->query("SELECT * FROM services ORDER BY service_id DESC LIMIT 1");
+	$status2 = $stmt2->execute(); 
+
+	$serviceId = $stmt2->fetch();
+
+	$service_id = intval($serviceId['service_id']);
+
+	$file_name = $service_id;
+
+
 	$message = '';
 
 	if ($handle->uploaded) {
-	  $handle->file_new_name_body   = ''.$_POST['add_campus_service'].'';
+	  $handle->file_new_name_body   = ''.$file_name.'';
 	  $handle->image_resize         = true;
-	  $handle->image_x              = 400;
-	  $handle->image_y              = 400;
+	  $handle->image_x              = 450;
+	  $handle->image_y              = 280;
 	  $handle->image_convert        = 'jpg';
 	  $handle->allowed 				= array('image/*');
 	  $handle->mime_check 			= true;
@@ -30,12 +40,6 @@
 	  }
 	}else{
 		$message = $message."Photo upload failed".'\n';
-	}
-
-	if($status){
-		echo "Hostel Service Added";
-	}else{
-		echo "Error Occured";
 	}
 
 	echo $message;

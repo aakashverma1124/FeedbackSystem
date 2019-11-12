@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Feedback System | ABES Engineering College</title>
+
+<title>Feedback System | ABES Engineering College</title>
 
 	<!-- ========== Meta tags ========== -->
 	<meta charset="UTF-8">
@@ -26,11 +27,11 @@
 	<header style="width: 100%;">
 		<div class="container-fluid">
           <div class="row">
-            <div class="col-md-2">
-                  <img style="width: 80%;" src="https://admission.abes.ac.in/assets/images/abeslogo.png" id="homestyleimg" alt="ABESEC">
+            <div style="float:center;" class="col-md-2">
+                  <img src="https://admission.abes.ac.in/assets/images/abeslogo.png" id="homestyleimg" alt="ABESEC">
             </div>
             <div class="col-md-10" style="background-color: #A51C30;">
-                <h2><b style="font-weight: 300; color: #fff; float: right; margin-top: 1%;" id="homestyle">Feedback System</b>
+                <h2><b style="font-weight: 300; color: #fff; float: right; margin-top: 1%;" id="homestyle">Feedback System | ABESEC</b>
                 </h2>
             </div>
             </div>
@@ -57,8 +58,13 @@
 
 				    <div id="user-login-form">
 				        <form action="./validate_user.php" method="post">
-				            <input type="text" name="admission_number" placeholder="Admission Number"/>
-				            <input type="password" name="user_password" placeholder="Password"/>
+				        	<?php
+				        		if(isset($_GET['status']) && $_GET['status'] == 'failed') {
+				        			echo '<p style="color:red;">Invalid User or Password!</p>';
+				        		}
+				        	?>
+				            <input type="text" id="admission_number" name="admission_number" placeholder="Admission Number"/>
+				            <input type="password" id="password" name="user_password" placeholder="Password"/>
 				            <input style="background-color: #A51C30" type="submit" name="user_login" class="btn login" value="Login">
 				            <p><a style="color: #A51C30" href="javascript:void(0)">Forgot password?</a></p>
 				            <hr/>
@@ -67,8 +73,13 @@
 
 				    <div id="admin-login-form">
 				        <form action="./validate_admin.php" method="post">
-				            <input type="text" name="admin_email" placeholder="Email"/>
-				            <input type="password" name="admin_password" placeholder="Password"/>
+				        	<?php
+				        		if(isset($_GET['status']) && $_GET['status'] == 'failed') {
+				        			echo '<p style="color:red;">Invalid User or Password!</p>';
+				        		}
+				        	?>
+				            <input type="text" id="admin_email" name="admin_email" placeholder="Email"/>
+				            <input type="password" id="admin_password" name="admin_password" placeholder="Password"/>
 				            <input style="background-color: #A51C30" type="submit" name="admin_login" class="btn login" value="Login">
 				            <p><a style="color: #A51C30" href="javascript:void(0)">Forgot password?</a></p>
 				            <hr/>
@@ -112,3 +123,14 @@
 	}
 
 </script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    if (window.location.href.indexOf("status=failed") > -1) {
+      alert("Invalid User");
+      window.location.href = 'index.php';
+    }
+
+  });
+</script> -->
