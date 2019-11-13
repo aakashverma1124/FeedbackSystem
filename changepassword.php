@@ -1,8 +1,9 @@
 <?php
+
+	session_start();
 	include_once('./includes/connection.php');
 	$values = (array)json_decode($_POST['action']);
 	$stmt = $conn->prepare("SELECT * FROM student_table WHERE admission_number=?");
-	session_start();
 	$admission_number = $_SESSION['admission_number'];
 	$stmt->execute([$admission_number]); 
 	$result = $stmt->fetch();

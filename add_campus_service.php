@@ -1,8 +1,12 @@
 <?php
+	
+	session_start();
 	include_once('./includes/class.upload.php');
 	include_once('./includes/connection.php');
 	// $values = (array)json_decode($_POST['action']);
 	
+if(isset($_SESSION['admin_loggedin'])) {
+
 	$handle = new upload($_FILES['uploadedServicePhoto']);
 
 	$stmt = $conn->prepare("INSERT INTO services (`service_name`, `type`) VALUES(?,?)");
@@ -49,5 +53,11 @@
 	}else{
 		echo "Error Occured";
 	}
+
+}
+
+else {
+	echo "You're not an authentic user!";
+}
 
 ?>

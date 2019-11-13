@@ -1,4 +1,9 @@
-<?php include_once("./includes/connection.php") ?>
+<?php 
+
+session_start();
+include_once("./includes/connection.php") 
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -57,7 +62,6 @@
 
    <!-- ========== Fetching data from session using PHP ========== -->
    <?php
-         session_start();
          $admin_name = $_SESSION["admin_name"];
          $admin_email = $_SESSION["admin_email"];
          $admin_contact = $_SESSION["admin_contact"];

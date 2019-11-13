@@ -1,4 +1,10 @@
-<?php include_once("./includes/connection.php") ?>
+<?php 
+
+error_reporting(E_ALL); 
+session_start();
+include_once("./includes/connection.php");
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -57,7 +63,6 @@
 
    <!-- ========== Fetching data from session using PHP ========== -->
    <?php
-         session_start();
          $name = $_SESSION["name"];
          $email = $_SESSION["email"];
          $branch = $_SESSION["branch"];

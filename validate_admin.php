@@ -1,4 +1,7 @@
 <?php
+
+	session_start();
+	ob_start();
 	include_once('./includes/connection.php');
 
 	$name;
@@ -7,6 +10,7 @@
   		$data = stripslashes($data);
   		$data = htmlspecialchars($data);
   		return $data;
+
 	}
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,7 +22,6 @@
 
 			foreach ($users as $user){
 				if($user["admin_email"]==$admin_email && $user["admin_password"]==$admin_password){
-					session_start();
 					$_SESSION["admin_name"] = $user["admin_name"];
 					$_SESSION["admin_email"] = $user["admin_email"];
 					$_SESSION["admin_contact"] = $user["admin_contact"];

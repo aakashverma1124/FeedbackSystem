@@ -66,7 +66,7 @@
 				            <input type="text" id="admission_number" name="admission_number" placeholder="Admission Number"/>
 				            <input type="password" id="password" name="user_password" placeholder="Password"/>
 				            <input style="background-color: #A51C30" type="submit" name="user_login" class="btn login" value="Login">
-				            <p><a style="color: #A51C30" href="javascript:void(0)">Forgot password?</a></p>
+				            <p><a style="color: #A51C30" href="./forgotpassword.php">Forgot password?</a></p>
 				            <hr/>
 				        </form>
 				    </div>

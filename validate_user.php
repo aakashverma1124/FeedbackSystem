@@ -1,4 +1,7 @@
 <?php
+
+	session_start();
+	ob_start();
 	include_once('./includes/connection.php');
 
 	$name;
@@ -17,7 +20,6 @@
 			var_dump($users);
 			foreach ($users as $user){
 				if($user["admission_number"]==$admission_number && $user["password"]==$user_password){
-					session_start();
 					$_SESSION["name"] = $user["name"];
 					$_SESSION["email"] = $user["email"];
 					$_SESSION["branch"] = $user["branch"];
